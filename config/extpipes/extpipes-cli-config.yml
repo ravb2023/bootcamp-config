@@ -33,19 +33,35 @@ default-contacts:
 
 rawdbs:
   # list of raw-dbs > containing rawtables > containing pipelines
-    - rawdb-name: <node_name>:db
-      dataset-external-id: <node_name>:ds
-      short-name: <Short name for raw DB>
+    - rawdb-name: src:001:sap:db  # rawdb-name: <node_name>:db
+      dataset-external-id: src:001:sap:ds    # <node_name>:ds
+      short-name: sap # <Short name for raw DB>
       rawtables:
-          - rawtable-name: <table name>
+          - rawtable-name: assets #<table name>
             pipelines:
         # source is a short-name identifying the pipeline source being
         # a 'db-extractor (db)', an 'Azure Function (az-func)',
         # or 'Azure Data Factory (adf)', 'Python script (py)', ..
-                - source: <source type>
+                - source: csv # <source type>
                   schedule: On trigger
                   contacts:
-                      - name: <Contact name>
-                        email: <Contact e-mail>
-                        role: <Contact role>
+                      - name: Vinay # <Contact name>
+                        email: vinay.bhatia@rockwellautomation.com # <Contact e-mail>
+                        role: Bootcamp 44 Administrator # <Contact role>
+                        send-notification: false
+    - rawdb-name: src:002:opcua:db  # rawdb-name: <node_name>:db
+      dataset-external-id: src:002:opcua:ds    # <node_name>:ds
+      short-name: opcua # <Short name for raw DB>
+      rawtables:
+          - rawtable-name: datapoints #<table name>
+            pipelines:
+        # source is a short-name identifying the pipeline source being
+        # a 'db-extractor (db)', an 'Azure Function (az-func)',
+        # or 'Azure Data Factory (adf)', 'Python script (py)', ..
+                - source: api # <source type>
+                  schedule: On trigger
+                  contacts:
+                      - name: Vinay # <Contact name>
+                        email: vinay.bhatia@rockwellautomation.com # <Contact e-mail>
+                        role: Bootcamp 44 Administrator # <Contact role>
                         send-notification: false
